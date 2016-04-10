@@ -9,36 +9,36 @@ var fee = require('./taxi-fee')
 
 describe('Taxi fee', function(){
 
-	it('should be 0 yuan when -1 km distance', function(){
-		fee.taxiFee(-1).should.equal(0);
+	it('when -1 km distance should be 0 yuan ', function(){
+		fee.taxiFee(-1, 0).should.equal(0);
 	});
 
-	it('should be 0 yuan when 0 km distance', function(){
-		fee.taxiFee(0).should.equal(0);
+	it('when 0 km distance should be 0 yuan ', function(){
+		fee.taxiFee(0, 0).should.equal(0);
 	});
 
-	it('should be 6 yuan when 1 km distance', function(){
-		fee.taxiFee(1).should.equal(6);
+	it('when 1 km distance and 6 minutes should be 6 yuan ', function(){
+		fee.taxiFee(1, 6).should.equal(6);
 	});
 
-	it('should be 6 yuan when 2 km distance', function(){
-		fee.taxiFee(2).should.equal(6);
+	it('when 2 km distance and 6 minutes should be 6 yuan ', function(){
+		fee.taxiFee(2, 6).should.equal(6);
 	});
 
-	it('should be 7 yuan when 3 km distance', function(){
-		fee.taxiFee(3).should.equal(7);
+	it('when 3 km distance and 6 minutes should be 8 yuan ', function(){
+		fee.taxiFee(3, 6).should.equal(8);
 	});
 
-	it('should be 8 yuan when 5 km distance', function(){
-		fee.taxiFee(5).should.equal(8);
+	it('when 8 km distance and 6 minutes should be 15 yuan ', function(){
+		fee.taxiFee(8, 6).should.equal(15);
 	});
 
-	it('should be 16 yuan when 10 km distance', function(){
-		fee.taxiFee(10).should.equal(16);
+	it('when 10 km distance and 6 minutes should be 17 yuan ', function(){
+		fee.taxiFee(10, 6).should.equal(17);
 	});
 
-	it('should be 17 yuan when 11 km distance', function(){
-		fee.taxiFee(11).should.equal(17);
+	it('when 11 km distance and 6 minutes should be 18 yuan ', function(){
+		fee.taxiFee(11, 6).should.equal(18);
 	});
 
 });
