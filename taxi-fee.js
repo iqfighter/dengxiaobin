@@ -1,12 +1,23 @@
-var base = 0.8;
-var threshPrice = 8;
+var priceBase = 0.8;
+var priceRatio = 1.5
+var priceStart = 6;
+var distThresh = 8;
+var distStart = 2;
 
 var taxiFee = function(distance){
-	var price = base*distance;
-	if (distance >= threshPrice){
-		price *= 1.5;
+	if (distance <= 0){
+		return (0);
 	}
-	return Math.round(price);
+
+	if (distance <= distStart){
+		return (priceStart);
+	}
+
+	var price = priceBase*(distance-distStart);
+	if (distance >= distThresh){
+		price *= priceRatio;
+	}
+	return Math.round(price+priceStart);
 };
 
 module.exports.taxiFee = taxiFee;

@@ -8,20 +8,37 @@ var should = require('should');
 var fee = require('./taxi-fee')
 
 describe('Taxi fee', function(){
-	it('should be 4 yuan when 5 km distance', function(){
-		fee.taxiFee(5).should.equal(4);
+
+	it('should be 0 yuan when -1 km distance', function(){
+		fee.taxiFee(-1).should.equal(0);
 	});
 
-	it('should be 10 yuan when 8 km distance', function(){
-		fee.taxiFee(8).should.equal(10);
+	it('should be 0 yuan when 0 km distance', function(){
+		fee.taxiFee(0).should.equal(0);
 	});
 
-	it('should be 12 yuan when 10 km distance', function(){
-		fee.taxiFee(10).should.equal(12);
+	it('should be 6 yuan when 1 km distance', function(){
+		fee.taxiFee(1).should.equal(6);
 	});
 
-	it('should be 13 yuan when 11 km distance', function(){
-		fee.taxiFee(11).should.equal(13);
+	it('should be 6 yuan when 2 km distance', function(){
+		fee.taxiFee(2).should.equal(6);
+	});
+
+	it('should be 7 yuan when 3 km distance', function(){
+		fee.taxiFee(3).should.equal(7);
+	});
+
+	it('should be 8 yuan when 5 km distance', function(){
+		fee.taxiFee(5).should.equal(8);
+	});
+
+	it('should be 16 yuan when 10 km distance', function(){
+		fee.taxiFee(10).should.equal(16);
+	});
+
+	it('should be 17 yuan when 11 km distance', function(){
+		fee.taxiFee(11).should.equal(17);
 	});
 
 });
